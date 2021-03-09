@@ -1,0 +1,4 @@
+.image {
+  height: 70vh !important;
+  object-fit: cover;
+}

@@ -1,24 +1,25 @@
 import React, { useContext } from "react";
 import { DataProvider } from "../Home/Home";
 import ShowProduct from "../ShoProduct/ShowProduct";
-
+import image from "../../resources/images/raphael-lovaski-HVmQdrB-iFw-unsplash.jpg";
+import "./Product.css";
 const Product = () => {
   const { data, handleCart } = useContext(DataProvider);
-  console.log(data);
 
   return (
     <div>
       <div className="row">
-        <div className="">
-          <div className="row row-cols-1 row-cols-md-3 g-4 ">
-            {data.map((pd) => (
-              <ShowProduct
-                handleCart={handleCart}
-                key={pd.key}
-                data={pd}
-              ></ShowProduct>
-            ))}
-          </div>
+        <img className="img-fluid image" src={image} alt="" />
+      </div>
+      <div className="row">
+        <div className="row row-cols-1 row-cols-md-3 g-3">
+          {data.map((pd) => (
+            <ShowProduct
+              handleCart={handleCart}
+              key={pd.key}
+              data={pd}
+            ></ShowProduct>
+          ))}
         </div>
       </div>
     </div>

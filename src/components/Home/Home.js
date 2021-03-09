@@ -16,21 +16,19 @@ const Home = () => {
 
   //Handle Cart
   const handleCart = (product) => {
-    // const addedProduct = data.filter((pd) => pd.key === productKey);
     const newCart = [...cart, product];
-
     const findCard = newCart.filter((pd) => pd.key === product.key);
     const count = findCard.length;
     addToDatabaseCart(product.key, count);
     setCart(newCart);
   };
   return (
-    <div className="container">
+    <div>
       <DataProvider.Provider
         value={{ data, cart, setCart, setData, handleCart }}
       >
         <Router>
-          <Nav></Nav>
+          <Nav className="sticky-top"></Nav>
           <Switch>
             <Route exact path="/">
               <Product></Product>

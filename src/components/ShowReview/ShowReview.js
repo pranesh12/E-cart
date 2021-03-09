@@ -1,7 +1,3 @@
-import React, { useContext } from "react";
-
-import { DataProvider } from "../Home/Home";
-
 const ShowReview = (props) => {
   const { name, img, quantity, price, star, key } = props.cart;
   const handleDelete = props.handleDelete;

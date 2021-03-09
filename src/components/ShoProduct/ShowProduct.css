@@ -1,0 +1,13 @@
+.link {
+  text-decoration: none;
+}
+.link {
+  color: black;
+}
+.link:hover {
+  color: #5e60ce;
+}
+.click {
+  background: #7400b8 !important;
+  color: #ffffff !important;
+}

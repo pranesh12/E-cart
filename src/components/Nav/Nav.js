@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import "./Nav.css";
+import { DataProvider } from "../Home/Home";
+
 const Nav = () => {
+  const { cart } = useContext(DataProvider);
   return (
-    <div className="row">
+    <div className="row sticky-top">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <button
@@ -19,7 +25,7 @@ const Nav = () => {
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <h6 className="text-primary nav-link">fgf</h6>
+                <h6 className="text-primary nav-link">Pranesh</h6>
               </li>
               <li className="nav-item">
                 <Link className="nav-link " aria-current="page" to="/">
@@ -32,7 +38,12 @@ const Nav = () => {
                 </Link>
               </li>
             </ul>
-            <span className="navbar-text">Cart</span>
+            <Link to="/order" className="cart">
+              <span className="navbar-text cart">
+                <FontAwesomeIcon className="icon fs-5" icon={faShoppingCart} />
+                <span className="ms-1 iconInfo fs-5 ">{cart.length}</span>
+              </span>
+            </Link>
           </div>
         </div>
       </nav>
