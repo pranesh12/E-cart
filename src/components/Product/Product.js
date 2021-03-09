@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import fakeData from "../../resources/fakeData";
+import { addToDatabaseCart } from "../../resources/utilities/databaseManager";
 import Cart from "../Cart/Cart";
 import ShowProduct from "../ShoProduct/ShowProduct";
 
@@ -12,8 +13,10 @@ const Product = () => {
   const handleCart = (product) => {
     // const addedProduct = data.filter((pd) => pd.key === productKey);
     const newCart = [...cart, product];
+    const findCard = newCart.filter((pd) => pd.key === product.key);
+    const count = findCard.length;
+    addToDatabaseCart(product.key, count);
     setCart(newCart);
-    console.log(cart);
   };
 
   return (
