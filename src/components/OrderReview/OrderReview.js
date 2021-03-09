@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import fakeData from "../../resources/fakeData";
 import {
   getDatabaseCart,
   removeFromDatabaseCart,
 } from "../../resources/utilities/databaseManager";
+import { DataProvider } from "../Home/Home";
 import ShowReview from "../ShowReview/ShowReview";
+import Cart from "../Cart/Cart";
 
 const OrderReview = () => {
-  const [cart, setCart] = useState([]);
+  const { cart, setCart } = useContext(DataProvider);
+
   useEffect(() => {
     const savedCart = getDatabaseCart();
     const productKeys = Object.keys(savedCart);
@@ -27,10 +30,15 @@ const OrderReview = () => {
   };
 
   return (
-    <div>
-      {cart.map((pd) => (
-        <ShowReview handleDelete={handleDelete} cart={pd}></ShowReview>
-      ))}
+    <div className="row">
+      <div className="col-8">
+        {cart.map((pd) => (
+          <ShowReview handleDelete={handleDelete} cart={pd}></ShowReview>
+        ))}
+      </div>
+      <div className="col-4">
+        <Cart cartData={cart}></Cart>
+      </div>
     </div>
   );
 };

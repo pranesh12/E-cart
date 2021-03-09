@@ -9,17 +9,18 @@ const Cart = (props) => {
   }
 
   let shipping = 0;
-  if (total > 1 && total <= 20) {
-    shipping = 10;
-  } else if (total > 20 && total <= 100) {
-    shipping = 40;
-  } else {
-    shipping = 100;
+  if (total > 35) {
+    shipping = 50;
+  } else if (total > 15) {
+    shipping = 4.99;
+  } else if (total > 0) {
+    shipping = 12.99;
   }
 
   let vat = 0.1;
   let totalVat = Number((total * vat).toFixed(3));
-  let grandTotal = Number((total + vat + shipping).toFixed(3));
+
+  let grandTotal = Math.floor(Number((total + vat + shipping).toFixed(3)));
 
   return (
     <div className="text-center">
