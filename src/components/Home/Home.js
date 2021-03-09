@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
 import Product from "../Product/Product";
 import OrderReview from "../OrderReview/OrderReview";
+import ProductDetails from "../ProductDetails/ProductDetails";
 
 const Home = () => {
   return (
@@ -13,6 +14,9 @@ const Home = () => {
         <Switch>
           <Route exact path="/">
             <Product></Product>
+          </Route>
+          <Route path="/product/:productKey">
+            <ProductDetails></ProductDetails>
           </Route>
           <Route path="/order">
             <OrderReview></OrderReview>
