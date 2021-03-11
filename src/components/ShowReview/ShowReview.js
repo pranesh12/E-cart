@@ -1,5 +1,5 @@
 const ShowReview = (props) => {
-  const { name, img, quantity, price, star, key } = props.cart;
+  const { name, img, quantity, price, key } = props.cart;
   const handleDelete = props.handleDelete;
   return (
     <div className="row">
