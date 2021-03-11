@@ -20,7 +20,7 @@ const OrderReview = () => {
       return product;
     });
     setCart(cartProducts);
-  }, []);
+  }, [cart, setCart]);
 
   const handleDelete = (productKey) => {
     console.log(productKey + "clciked");
