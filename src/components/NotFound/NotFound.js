@@ -1,9 +1,10 @@
 import React from "react";
-import funnyGirl from "../../resources/images/tenor.gif";
 import { Link } from "react-router-dom";
+import funnyGirl from "../../resources/images/tenor.gif";
+import "./NotFound.css";
 const NotFound = () => {
   return (
-    <div className="d-flex flex-column justify-content-center">
+    <div className="Not_found">
       <h2>Sorry Page not Found(404) </h2>
       <div>
         <img src={funnyGirl} alt="funnyGirl" />

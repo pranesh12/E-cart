@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { cart, DataProvider } from "../Home/Home";
 
 const Cart = (props) => {
+  const { removeCart } = useContext(DataProvider);
+
   let cart = props.cartData;
   let total = 0;
   for (let i = 0; i < cart.length; i++) {
@@ -31,8 +34,8 @@ const Cart = (props) => {
       <p>Shipping cost ${shipping}</p>
       <p className="border-bottom">Vat: ${totalVat}</p>
       <h6>Total: ${grandTotal}</h6>
-      <Link to="/order">
-        <button className="btn btn-primary">Order-Review</button>
+      <Link to="/finalOrder">
+        <button className="btn btn-primary">Place Order</button>
       </Link>
     </div>
   );

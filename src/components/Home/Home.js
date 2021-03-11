@@ -6,7 +6,11 @@ import Product from "../Product/Product";
 import OrderReview from "../OrderReview/OrderReview";
 import ProductDetails from "../ProductDetails/ProductDetails";
 import fakeData from "../../resources/fakeData";
-import { addToDatabaseCart } from "../../resources/utilities/databaseManager";
+import {
+  addToDatabaseCart,
+  processOrder,
+} from "../../resources/utilities/databaseManager";
+import FinalOrder from "../FinalOrder/FinalOrder";
 export const DataProvider = createContext();
 
 const Home = () => {
@@ -22,10 +26,13 @@ const Home = () => {
     addToDatabaseCart(product.key, count);
     setCart(newCart);
   };
+  const removeCart = (cart) => {
+    processOrder(cart);
+  };
   return (
     <div>
       <DataProvider.Provider
-        value={{ data, cart, setCart, setData, handleCart }}
+        value={{ data, cart, setCart, setData, handleCart, removeCart }}
       >
         <Router>
           <Nav className="sticky-top"></Nav>
@@ -38,6 +45,9 @@ const Home = () => {
             </Route>
             <Route path="/order">
               <OrderReview></OrderReview>
+            </Route>
+            <Route path="/finalOrder">
+              <FinalOrder></FinalOrder>
             </Route>
             <Route path="*">
               <NotFound></NotFound>
