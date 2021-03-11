@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router";
 import fakeData from "../../resources/fakeData";
 import ShowProduct from "../ShoProduct/ShowProduct";

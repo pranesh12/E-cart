@@ -1,10 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { cart, DataProvider } from "../Home/Home";
 
 const Cart = (props) => {
-  const { removeCart } = useContext(DataProvider);
-
   let cart = props.cartData;
   let total = 0;
   for (let i = 0; i < cart.length; i++) {

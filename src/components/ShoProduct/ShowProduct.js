@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ShowProduct.css";
 const ShowProduct = (props) => {
-  const { img, key, name, price, star, seller, shipping, stock } = props.data;
+  const { img, key, name, price, seller, shipping } = props.data;
 
   return (
     <div>
